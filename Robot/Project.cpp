@@ -77,17 +77,15 @@ void loop() {
 
   if(USdistance < 20){
 
-
   analogWrite(motorPin1, 80);
   analogWrite(motorPin2, 0);
   delay(1200);
 
   }
 
-
-
   distance1 = 0;
   distance2 = 0;
+  
   for (int n = 0; n < 10; n++) {
     sensorValue1 = analogRead(sensorPin1);
     distance1 += convertToDistance(sensorValue1);
@@ -98,13 +96,12 @@ void loop() {
   distance1 /= 10;
   distance2 /= 10;
 
-
   if (distance2 > 70 || distance2 < 5){
-
   analogWrite(motorPin1, 60);
   analogWrite(motorPin2, 120);
   delay(1200);
   }
+  
   // Calculate and print the degree
   alpha = atan((distance1 - distance2) / l); // Assuming 10.0 for the length 'l'
 
